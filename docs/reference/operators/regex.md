@@ -23,43 +23,46 @@ matching via regular expressions.
 
 ## LIKE / ILIKE
 
-`string LIKE pattern` - returns true if `string` value matches `pattern` otherwise returns false (case sensitive match)
+`(string) LIKE (pattern)` - returns true if the `string` value matches `pattern`, otherwise returns false (case sensitive match).
 
-`string ILIKE pattern` - returns true if `string` value matches `pattern` otherwise returns false (case-insensitive match)
+`(string) ILIKE (pattern)` - returns true if the `string` value matches `pattern`, otherwise returns false (case-insensitive match).
 
 ### Arguments
-`string` is [string].
-`symbol` is [string].
 
+`string` is a string which is commonly the name of a column.
+
+`pattern` is a pattern which can contain wildcards like `?` and `%`.
 
 ### Return value
 
-Return value type is [boolean].
+Return value type is `boolean`.
 
 ### Description
 
-The pattern can contain wildcards which are interpreted as follows:
+If the pattern doesn't contain wildcards, then the pattern represents the string itself.
+
+The wildcards whuch can be used in pattern are interpreted as follows:
 - `?` - matches any single character
 - `%` - matches any sequence of zero or more characters
 
 Wildcards can be used as follows:
 
-|      query             | result  |
-| ---------------------- | ------- |
-| 'quest' LIKE 'quest'   |  true   |
-| 'quest' LIKE 'quest_'  |  true   |
-| 'quest' LIKE 'que%'    |  true   |
-| 'quest' LIKE '\_ues_'  |  true   |
-| 'quest' LIKE 'q_'      |  false  |
+|            query              | result  |
+| ----------------------------- | ------- |
+| SELECT 'quest' LIKE 'quest'   |  true   |
+| SELECT 'quest' LIKE 'quest_'  |  true   |
+| SELECT 'quest' LIKE 'que%'    |  true   |
+| SELECT 'quest' LIKE '\_ues_'  |  true   |
+| SELECT 'quest' LIKE 'q_'      |  false  |
 
 `ILIKE` performs a case-insensitive match as follows:
 
-|      query             | result  |
-| ---------------------- | ------- |
-| 'quest' ILIKE 'QUEST'  |  true   |
-| 'qUeSt' ILIKE 'QUEST'  |  true   |
-| 'quest' ILIKE 'QUE%'   |  true   |
-| 'QUEST' ILIKE '\_ues_' |  true   |
+|            query              | result  |
+| ----------------------------- | ------- |
+| SELECT 'quest' ILIKE 'QUEST'  |  true   |
+| SELECT 'qUeSt' ILIKE 'QUEST'  |  true   |
+| SELECT 'quest' ILIKE 'QUE%'   |  true   |
+| SELECT 'QUEST' ILIKE '\_ues_' |  true   |
 
 ### Example
 
