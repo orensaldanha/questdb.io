@@ -21,7 +21,6 @@ matching via regular expressions.
 
 `symbol !~ regex` - checks if `symbol` value does not match regex
 
-<<<<<<< HEAD
 ## LIKE / ILIKE
 
 `(string) LIKE (pattern)` - returns true if the `string` value matches `pattern`, otherwise returns false (case sensitive match).
@@ -30,7 +29,7 @@ matching via regular expressions.
 
 ### Arguments
 
-`string` is a string which is commonly the name of a column.
+`string` is an expression that evaluates to the `string` data type.
 
 `pattern` is a pattern which can contain wildcards like `?` and `%`.
 
@@ -43,8 +42,8 @@ Return value type is `boolean`.
 If the pattern doesn't contain wildcards, then the pattern represents the string itself.
 
 The wildcards whuch can be used in pattern are interpreted as follows:
-- `?` - matches any single character
-- `%` - matches any sequence of zero or more characters
+- `?` - matches any single character.
+- `%` - matches any sequence of zero or more characters.
 
 Wildcards can be used as follows:
 
@@ -65,7 +64,7 @@ Wildcards can be used as follows:
 | SELECT 'quest' ILIKE 'QUE%'   |  true   |
 | SELECT 'QUEST' ILIKE '\_ues_' |  true   |
 
-### Example
+### Examples
 
 #### LIKE
 
@@ -92,8 +91,6 @@ LATEST ON timestamp PARTITION BY symbol;
 | --- | --- | --- | --- | --- |
 | ETH-USD | sell | 1348.13 | 3.22455108 | 2022-10-04T15:25:58.834362Z |
 | BTC-USD | sell | 20082.08 | 0.16591219 | 2022-10-04T15:25:59.742552Z |
-=======
-
 
 ## regexp_replace
 
@@ -118,4 +115,3 @@ SELECT REGEXP_REPLACE ('MYSQL is a great database', '^(\S*)', 'QuestDB');
 ```
 QuestDB is a great database
 ```
->>>>>>> master
