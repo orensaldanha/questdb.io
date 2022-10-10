@@ -21,6 +21,7 @@ matching via regular expressions.
 
 `symbol !~ regex` - checks if `symbol` value does not match regex
 
+<<<<<<< HEAD
 ## LIKE / ILIKE
 
 `(string) LIKE (pattern)` - returns true if the `string` value matches `pattern`, otherwise returns false (case sensitive match).
@@ -91,3 +92,30 @@ LATEST ON timestamp PARTITION BY symbol;
 | --- | --- | --- | --- | --- |
 | ETH-USD | sell | 1348.13 | 3.22455108 | 2022-10-04T15:25:58.834362Z |
 | BTC-USD | sell | 20082.08 | 0.16591219 | 2022-10-04T15:25:59.742552Z |
+=======
+
+
+## regexp_replace
+
+`regexp_replace ( value1, text , value2 )` - provides substitution of new text for substrings that match regular expression patterns.We use Java regex syntax here.
+
+**Arguments:**
+
+- `value1` is any `string` value.
+- `text` is  any regular expression pattern.
+- `value2` is any `string` value.
+
+**Return value:**
+
+The source string is returned unchanged if there is no match to the pattern. If there is a match, the source string is returned with the replacement string substituted for the matching substring.
+
+**Examples:**
+
+```questdb-sql title="Example description -  regexp_replace"
+SELECT REGEXP_REPLACE ('MYSQL is a great database', '^(\S*)', 'QuestDB');
+```
+
+```
+QuestDB is a great database
+```
+>>>>>>> master
