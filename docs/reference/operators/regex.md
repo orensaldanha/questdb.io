@@ -31,7 +31,7 @@ matching via regular expressions.
 
 `string` is an expression that evaluates to the `string` data type.
 
-`pattern` is a pattern which can contain wildcards like `?` and `%`.
+`pattern` is a pattern which can contain wildcards like `_` and `%`.
 
 ### Return value
 
@@ -42,7 +42,7 @@ Return value type is `boolean`.
 If the pattern doesn't contain wildcards, then the pattern represents the string itself.
 
 The wildcards which can be used in pattern are interpreted as follows:
-- `?` - matches any single character.
+- `_` - matches any single character.
 - `%` - matches any sequence of zero or more characters.
 
 Wildcards can be used as follows:
@@ -52,7 +52,7 @@ Wildcards can be used as follows:
 | SELECT 'quest' LIKE 'quest'   |  true   |
 | SELECT 'quest' LIKE 'ques_'   |  true   |
 | SELECT 'quest' LIKE 'que%'    |  true   |
-| SELECT 'quest' LIKE '\_ues_'  |  true   |
+| SELECT 'quest' LIKE '_ues_'  |  true   |
 | SELECT 'quest' LIKE 'q_'      |  false  |
 
 `ILIKE` performs a case-insensitive match as follows:
@@ -62,7 +62,7 @@ Wildcards can be used as follows:
 | SELECT 'quest' ILIKE 'QUEST'  |  true   |
 | SELECT 'qUeSt' ILIKE 'QUEST'  |  true   |
 | SELECT 'quest' ILIKE 'QUE%'   |  true   |
-| SELECT 'QUEST' ILIKE '\_ues_' |  true   |
+| SELECT 'QUEST' ILIKE '_ues_' |  true   |
 
 ### Examples
 
