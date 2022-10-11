@@ -62,7 +62,7 @@ Wildcards can be used as follows:
 | SELECT 'quest' ILIKE 'QUEST'  |  true   |
 | SELECT 'qUeSt' ILIKE 'QUEST'  |  true   |
 | SELECT 'quest' ILIKE 'QUE%'   |  true   |
-| SELECT 'QUEST' ILIKE '_ues_' |  true   |
+| SELECT 'QUEST' ILIKE '\_ues_' |  true   |
 
 ### Examples
 
