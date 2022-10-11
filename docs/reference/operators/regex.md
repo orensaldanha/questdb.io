@@ -52,7 +52,7 @@ Wildcards can be used as follows:
 | SELECT 'quest' LIKE 'quest'   |  true   |
 | SELECT 'quest' LIKE 'ques_'   |  true   |
 | SELECT 'quest' LIKE 'que%'    |  true   |
-| SELECT 'quest' LIKE '_ues_'  |  true   |
+| SELECT 'quest' LIKE '\_ues_'  |  true   |
 | SELECT 'quest' LIKE 'q_'      |  false  |
 
 `ILIKE` performs a case-insensitive match as follows:
