@@ -41,7 +41,7 @@ Return value type is `boolean`.
 
 If the pattern doesn't contain wildcards, then the pattern represents the string itself.
 
-The wildcards whuch can be used in pattern are interpreted as follows:
+The wildcards which can be used in pattern are interpreted as follows:
 - `?` - matches any single character.
 - `%` - matches any sequence of zero or more characters.
 
@@ -50,7 +50,7 @@ Wildcards can be used as follows:
 |            query              | result  |
 | ----------------------------- | ------- |
 | SELECT 'quest' LIKE 'quest'   |  true   |
-| SELECT 'quest' LIKE 'quest_'  |  true   |
+| SELECT 'quest' LIKE 'ques_'   |  true   |
 | SELECT 'quest' LIKE 'que%'    |  true   |
 | SELECT 'quest' LIKE '\_ues_'  |  true   |
 | SELECT 'quest' LIKE 'q_'      |  false  |
